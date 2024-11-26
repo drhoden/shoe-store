@@ -50,6 +50,12 @@ Login into Confluent Cloud and create an environment with Schema Registry:
 The environment is ready to work and includes a Schema Registry in the chosen region.
 ![image](terraform/img/environment.png)
 
+If you _instead_ want to create your environment using the Confluent CLI tool, you can do so like this:
+```
+confluent env create handson-flink --governance-package essentials
+```
+Be sure to take note of your environment's ID.
+
 ### Create Kafka Cluster in Environment `handson-flink`
 
 Next, create a Basic Cluster in your chosen environment based on the rule above.
