@@ -78,6 +78,11 @@ AWS Pools take 1-2 minutes. Azure Pools can take 5-7 minutes as of today (Januar
 
 ![image](terraform/img/flinkpool.png)
 
+If you wish to _instead_ create this resource using the Confluent CLI tool, the command would look like this (demonstrated using GCP and us-central1):
+```
+confluent flink compute-pool create cc_flink_compute_pool --cloud gcp --region us-central1 --max-cfu 10
+```
+NOTE: You may need to specify your environment ID using the flag ` --environment string `.
 
 ## 3. Connecting to Flink 
 You can use your web browser or console to enter Flink SQL statements.
