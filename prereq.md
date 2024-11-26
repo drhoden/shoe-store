@@ -67,6 +67,19 @@ Click the button `Create cluster`
 The cluster will be up and running in seconds.
 ![image](terraform/img/cluster.png)
 
+This can also be accomplished using the Confluent CLI tool.  It is a good idea to first check the current (assumed) environment, and then specify which environment should be used for the remainder of the session:
+```
+confluent env list
+```
+Note the ID (your's will be different) and use that value in the next command:
+```
+confluent env use [env-XXXXXX]
+```
+After you see `Using environment env-XXXXXX` you can create the cluster using the above specifications like this:
+```
+confluent kafka cluster create cc_handson_cluster --cloud gcp --region us-central1 --availability single-zone --type basic
+```
+
 ### Create topics in Kafka Cluster `cc_handson_cluster`
 Now, we need three topics to store our events.
 * shoe_products
@@ -80,6 +93,21 @@ Create a topic by clicking (left.hand menu) Topics and then clicking the `Create
 
 Three topics are created.
 ![image](terraform/img/topics.png)
+
+If you want *to use the Confluent CLI tool* to create the topics, first, be sure to confirm the current (assumed) cluster with:
+```
+confluent kafka cluster list
+```
+This will provide you the ID of your cluster.  Use it in the following command, substituting your cluster's ID:
+```
+confluent kafka cluster use lkc-XXXXXX
+```
+Now you can create topics like this:
+```
+confluent kafka topic create shoe_products --partitions 1
+confluent kafka topic create shoe_customers --partitions 1
+confluent kafka topic create shoe_orders --partitions 1
+```
 
 ### Create Sample Data connectors to fill the topics `show_products` and `shoe_customers` and `shoe_orders`
 Confluent has the Datagen connector, which is a test data generator. In Confluent Cloud a range of Quickstarts (predefined data) are available and will generate data of a given format.
