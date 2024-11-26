@@ -32,6 +32,11 @@ You can create each Confluent Cloud resource with the Confluent CLI tool, the Co
 Both are using the confluent cloud API in the background.
 If you want to use the CLI, you must [install the CLI](https://docs.confluent.io/confluent-cli/current/install.html) on your desktop. This workshop guide will cover the GUI only.
 
+To check if Flink is available in your preferred cloud provider and region, you can use the `confluent kafka/flink region list` command:
+```
+confluent kafka region list | grep -i gcp | grep -i us-
+confluent flink region list | grep -i gcp | grep -i us-
+```
 ### Create Environment and Schema Registry
 Login into Confluent Cloud and create an environment with Schema Registry:
 * Click the `Add cloud environment`  button
