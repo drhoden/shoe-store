@@ -37,6 +37,8 @@ To check if Flink is available in your preferred cloud provider and region, you 
 confluent kafka region list | grep -i gcp | grep -i us-
 confluent flink region list | grep -i gcp | grep -i us-
 ```
+![image](terraform/img/confluent-region-list-example.png)
+
 ### Create Environment and Schema Registry
 Login into Confluent Cloud and create an environment with Schema Registry:
 * Click the `Add cloud environment`  button
